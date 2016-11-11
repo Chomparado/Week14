@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body class="container">
+	<div class="row">
+		
+		<div class="jumbotron">
+		  <h1>Can I take your order please?</h1>
+		  <p></p>
+		  </div>
+
+	</div>
+
+	<div class="row">
+		
+		<div class=col-md-6>
+			<ul id='burgersToEat'>
+				
+			</ul>
+		</div>
+
+		<div class=col-md-6>
+			<ul id='burgersEaten'>
+			</ul>
+		</div>
+
+	</div>
+	<br>
+	<br>
+
+	<div class="row">
+		<form>
+		  <div class="form-group">
+		    <label for="burgerInput">Burger</label>
+		    <input type="burger" class="form-control" id="burgerInput" placeholder="Burger Please">
+		  </div>
+		  
+		  <button id="submit" type="submit" class="btn btn-default">Submit</button>
+		</form>
+	</div>
+
+
+
+</body>
+</html>
+
+<script>
+	$(submit).on("click", function(){
+
+				var newBurger = 
+				{
+					name: $("#burgerInput").val().trim(),
+
+				};
+
+				var currentURL = window.location.origin;
+
+				$.post( currentURL + "/api/new", newBurger)
+					.done(function(data){
+						console.log(data);
+						alert("Adding character...")
+					})
+
+				$('#burgerInput').val("");
+
+
+				return false;
+
+				// On click, a list item should be generated above with a devour button pulling the most recent item from the table.
+				// When you click devour it will set "devour" on the table to false and will generate a similar list item on the right side to note that the burger has been eaten.
+
+
+
+			});	
+
+</script>
